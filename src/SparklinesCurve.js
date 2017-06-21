@@ -12,7 +12,7 @@ export default class SparklinesCurve extends React.Component {
     };
 
     render() {
-        const { points, width, height, color, style, divisor = 0.5 } = this.props;
+        const { points, width, height, color, style, divisor = 0.5, getPath } = this.props;
         let prev;
         const curve = (p) => {
             let res;
@@ -52,7 +52,7 @@ export default class SparklinesCurve extends React.Component {
         return (
             <g>
                 <path d={"M"+fillPoints.join(' ')} className="closed-path" />
-                <path d={"M"+linePoints.join(' ')} className="line" />
+                <path d={"M"+linePoints.join(' ')} className="line" ref={(path) => {getPath(path)}} />
             </g>
         )
     }

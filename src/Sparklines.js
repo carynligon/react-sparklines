@@ -42,7 +42,7 @@ class Sparklines extends React.Component {
     }
 
     render() {
-        const {  data, limit, width, height, svgWidth, svgHeight, preserveAspectRatio, style, max, min} = this.props;
+        const {  data, limit, width, height, svgWidth, svgHeight, preserveAspectRatio, style, max, min, getPath } = this.props;
 
         if (data.length === 0) return null;
 
@@ -56,7 +56,7 @@ class Sparklines extends React.Component {
             <svg {...svgOpts}>
                 {
                     React.Children.map(this.props.children, function(child) {
-                        return React.cloneElement(child, { data, points, width, height });
+                        return React.cloneElement(child, { data, points, width, height, getPath });
                     })
                 }
             </svg>
