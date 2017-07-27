@@ -1811,7 +1811,7 @@ var SparklinesSpots = function (_React$Component) {
     _createClass(SparklinesSpots, [{
         key: 'lastDirection',
         value: function lastDirection(points) {
-            var index = [points.length];
+            var index = points.length;
             if (this.props.index) {
                 index = this.props.index;
             }
@@ -1834,7 +1834,7 @@ var SparklinesSpots = function (_React$Component) {
                 spotColors = _props.spotColors;
 
 
-            var index = [points.length];
+            var index = points.length;
             if (this.props.index) {
                 index = this.props.index;
             }

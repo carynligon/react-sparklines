@@ -21,7 +21,7 @@ export default class SparklinesSpots extends React.Component {
     };
 
     lastDirection(points) {
-        let index = [points.length];
+        let index = points.length;
         if (this.props.index) {
             index = this.props.index;
         }
@@ -37,7 +37,7 @@ export default class SparklinesSpots extends React.Component {
 
         const { points, width, height, size, style, spotColors } = this.props;
 
-        let index = [points.length];
+        let index = points.length;
         if (this.props.index) {
             index = this.props.index;
         }
