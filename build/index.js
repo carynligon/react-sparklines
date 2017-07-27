@@ -677,8 +677,7 @@ var Sparklines = function (_PureComponent) {
                 preserveAspectRatio = _props.preserveAspectRatio,
                 style = _props.style,
                 max = _props.max,
-                min = _props.min,
-                getPath = _props.getPath;
+                min = _props.min;
 
 
             if (data.length === 0) return null;
@@ -693,7 +692,7 @@ var Sparklines = function (_PureComponent) {
                 'svg',
                 svgOpts,
                 _react2.default.Children.map(this.props.children, function (child) {
-                    return _react2.default.cloneElement(child, { data: data, points: points, width: width, height: height, getPath: getPath });
+                    return _react2.default.cloneElement(child, { data: data, points: points, width: width, height: height });
                 })
             );
         }
@@ -1627,8 +1626,7 @@ var SparklinesCurve = function (_React$Component) {
                 color = _props.color,
                 style = _props.style,
                 _props$divisor = _props.divisor,
-                divisor = _props$divisor === undefined ? 0.5 : _props$divisor,
-                getPath = _props.getPath;
+                divisor = _props$divisor === undefined ? 0.5 : _props$divisor;
 
             var prev = void 0;
             var curve = function curve(p) {
@@ -1666,9 +1664,7 @@ var SparklinesCurve = function (_React$Component) {
                 'g',
                 null,
                 _react2.default.createElement('path', { d: "M" + fillPoints.join(' '), className: 'closed-path' }),
-                _react2.default.createElement('path', { d: "M" + linePoints.join(' '), className: 'line', ref: function ref(path) {
-                        getPath(path);
-                    } })
+                _react2.default.createElement('path', { d: "M" + linePoints.join(' '), className: 'line' })
             );
         }
     }]);
