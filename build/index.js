@@ -1811,10 +1811,8 @@ var SparklinesSpots = function (_React$Component) {
     _createClass(SparklinesSpots, [{
         key: 'lastDirection',
         value: function lastDirection(points) {
-            var index = points.length;
-            if (this.props.index) {
-                index = this.props.index;
-            }
+            var index = this.props.index;
+
 
             Math.sign = Math.sign || function (x) {
                 return x > 0 ? 1 : -1;
@@ -1826,6 +1824,7 @@ var SparklinesSpots = function (_React$Component) {
         key: 'render',
         value: function render() {
             var _props = this.props,
+                index = _props.index,
                 points = _props.points,
                 width = _props.width,
                 height = _props.height,
@@ -1833,11 +1832,6 @@ var SparklinesSpots = function (_React$Component) {
                 style = _props.style,
                 spotColors = _props.spotColors;
 
-
-            var index = points.length;
-            if (this.props.index) {
-                index = this.props.index;
-            }
 
             var startSpot = _react2.default.createElement('circle', {
                 cx: points[0].x,
