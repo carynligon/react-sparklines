@@ -1811,12 +1811,16 @@ var SparklinesSpots = function (_React$Component) {
     _createClass(SparklinesSpots, [{
         key: 'lastDirection',
         value: function lastDirection(points) {
+            var index = [points.length];
+            if (this.props.index) {
+                index = this.props.index;
+            }
 
             Math.sign = Math.sign || function (x) {
                 return x > 0 ? 1 : -1;
             };
 
-            return points.length < 2 ? 0 : Math.sign(points[points.length - 2].y - points[points.length - 1].y);
+            return index < 2 ? 0 : Math.sign(points[index - 2].y - points[index - 1].y);
         }
     }, {
         key: 'render',
@@ -1830,6 +1834,11 @@ var SparklinesSpots = function (_React$Component) {
                 spotColors = _props.spotColors;
 
 
+            var index = [points.length];
+            if (this.props.index) {
+                index = this.props.index;
+            }
+
             var startSpot = _react2.default.createElement('circle', {
                 cx: points[0].x,
                 cy: points[0].y,
@@ -1837,8 +1846,8 @@ var SparklinesSpots = function (_React$Component) {
                 style: style });
 
             var endSpot = _react2.default.createElement('circle', {
-                cx: points[points.length - 1].x,
-                cy: points[points.length - 1].y,
+                cx: points[index].x,
+                cy: points[index].y,
                 r: size,
                 style: style || { fill: spotColors[this.lastDirection(points)] } });
 
@@ -1855,11 +1864,13 @@ var SparklinesSpots = function (_React$Component) {
 }(_react2.default.Component);
 
 SparklinesSpots.propTypes = {
+    index: _propTypes2.default.number,
     size: _propTypes2.default.number,
     style: _propTypes2.default.object,
     spotColors: _propTypes2.default.object
 };
 SparklinesSpots.defaultProps = {
+    index: null,
     size: 2,
     spotColors: {
         '-1': 'red',
