@@ -22,12 +22,13 @@ export default class SparklinesSpots extends React.Component {
 
     lastDirection(points) {
         const { index } = this.props;
+        const pointIndex = index || points.length;
 
         Math.sign = Math.sign || function(x) { return x > 0 ? 1 : -1; }
 
-        return index < 2
+        return pointIndex < 2
             ? 0
-            : Math.sign(points[index - 2].y - points[index - 1].y);
+            : Math.sign(points[pointIndex - 2].y - points[pointIndex - 1].y);
     }
 
     render() {
@@ -41,8 +42,8 @@ export default class SparklinesSpots extends React.Component {
                             style={style} />
 
         const endSpot = <circle
-                            cx={points[index].x}
-                            cy={points[index].y}
+                            cx={points[index || points.length - 1].x}
+                            cy={points[index || points.length - 1].y}
                             r={size}
                             style={style || { fill: spotColors[this.lastDirection(points)] }} />
 
