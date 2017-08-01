@@ -32,10 +32,10 @@ export default class SparklinesSpots extends React.Component {
     }
 
     render() {
+        const { index, points, width, height, size, style, spotColors } = this.props;
+
         const endX = index && points[index] ? points[index].x : points[points.length - 1].x;
         const endY = index && points[index] ? points[index].y : points[points.length - 1].y;
-
-        const { index, points, width, height, size, style, spotColors } = this.props;
 
         const startSpot = <circle
                             cx={points[0].x}

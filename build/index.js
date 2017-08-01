@@ -1824,9 +1824,6 @@ var SparklinesSpots = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var endX = index && points[index] ? points[index].x : points[points.length - 1].x;
-            var endY = index && points[index] ? points[index].y : points[points.length - 1].y;
-
             var _props = this.props,
                 index = _props.index,
                 points = _props.points,
@@ -1836,6 +1833,9 @@ var SparklinesSpots = function (_React$Component) {
                 style = _props.style,
                 spotColors = _props.spotColors;
 
+
+            var endX = index && points[index] ? points[index].x : points[points.length - 1].x;
+            var endY = index && points[index] ? points[index].y : points[points.length - 1].y;
 
             var startSpot = _react2.default.createElement('circle', {
                 cx: points[0].x,
